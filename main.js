@@ -10,7 +10,9 @@ let selectedCity;
 
 const getCitiesUsingGeolocation = async (searchText) => {
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchText}&limit=5&appid=${API_KEY}`)
-    return response.json();
+    const resData = await response.json();
+    console.log(resData);
+    return resData;
 }
 
 const getCurrentWeatherData = async ({ lat, lon, name: city }) => {

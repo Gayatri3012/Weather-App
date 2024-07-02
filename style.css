@@ -6,7 +6,7 @@
 
 :root {
     --spacing-medium: 8px;
-    --spacing-regular: 16px;
+    --spacing-regular: 20px;
 
     --font-small: .5rem;
     --font-regular: 1rem;
@@ -16,6 +16,12 @@
     --font-semibold: 600;
 
 }
+
+html{
+    height: 100vh;
+    place-items:inherit;
+}
+
 
 h1,
 h2 {
@@ -27,7 +33,6 @@ p {
 }
 
 body {
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 800px;
     min-width: 350px;
@@ -41,6 +46,7 @@ body {
 
 .container {
     display: grid;
+    margin-top: 20px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
         "search search"
