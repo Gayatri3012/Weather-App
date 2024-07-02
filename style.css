@@ -32,7 +32,11 @@ body {
     max-width: 800px;
     min-width: 350px;
     margin: var(--spacing-regular) auto;
-
+    background-image: url('/images/mist.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -46,7 +50,7 @@ body {
         "feelslike humidity"
     ;
     gap: var(--spacing-regular);
-    background-color: rgba(41, 32, 32, 0.556);
+    background-color: rgba(41, 32, 32, 0.68);
     color: white;
 }
 

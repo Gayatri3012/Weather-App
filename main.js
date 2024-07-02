@@ -121,48 +121,6 @@ const loadHumidity = ({ main: { humidity } }) => {
     container.querySelector(".humidity-value").textContent = `${humidity}%`;
 }
 
-const loadBackgroundImage = ({ weather: [{ description }] }) => {
-
-    document.body.style.backgroundImage = "url('images/default.jpg')";
-    if (description === "clear sky" || description === "few clouds") {
-        if (bgImgIcon.includes("n")) {
-            document.body.style.backgroundImage = "url('images/nightskyclear.webp')";
-            document.querySelector(".container").style.backgroundColor = "";
-        } else {
-            document.body.style.backgroundImage = "url('images/clearskyday.jpg')";
-        }
-    }
-
-    if (description === "scattered clouds" || description === "broken clouds") {
-        if (bgImgIcon.includes("n")) {
-            document.body.style.backgroundImage = "url('images/scatteredCloudsNight.jpg')"
-        } else {
-            document.body.style.backgroundImage = "url('images/scatteredCloudsDay.jpg')"
-        }
-    }
-
-    if (description === "shower rain" || description === "rain") {
-
-        document.body.style.backgroundImage = "url('images/rainDay.jpg')"
-    }
-
-    if (description === "thunderstrom") {
-        document.body.style.backgroundImage = "url('images/thunderstrom.jpg')"
-    }
-
-    if (description === "snow") {
-        if (bgImgIcon.includes("n")) {
-            document.body.style.backgroundImage = "url('images/snowNight.jpg')";
-        } else {
-            document.body.style.backgroundImage = "url('images/snowDay.jpg')";
-        }
-    }
-
-    if (description === "mist") {
-        document.body.style.backgroundImage = "url('images/mist.jpg')";
-    }
-
-}
 
 const loadForecastUsingGeoLocation = () => {
     navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -177,7 +135,6 @@ const loadData = async () => {
     const hourlyForecast = await getHourlyForecast(currentWeather);
     loadHourlyForecast(currentWeather, hourlyForecast)
     loadFiveDayForecast(hourlyForecast)
-    loadBackgroundImage(currentWeather)
     loadFeelsLike(currentWeather);
     loadHumidity(currentWeather);
 }
